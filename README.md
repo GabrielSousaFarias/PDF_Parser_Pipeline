@@ -71,20 +71,39 @@ pdf-parser-pipeline/
 ### 🚀 Como Executar
 
 #### Subir Kafka
-
+```bash
 docker compose up -d
-
+```
 #### Iniciar API
-
+```bash
 uvicorn app.main:app --reload
-
+```
 #### Iniciar Worker
-
+```bash
 python -m worker.consumer
-
+```
 #### Swagger
 
 http://localhost:8000/docs
+
+### ✅ Testes Automatizados
+
+O projeto possui testes automatizados utilizando **Pytest**, cobrindo componentes críticos da aplicação, incluindo configurações, armazenamento de arquivos, API e processamento de documentos.
+
+Os testes contribuem para a confiabilidade da solução, permitindo validar alterações futuras com segurança e reduzindo a probabilidade de regressões. Além disso, a utilização de cobertura de código (`pytest-cov`) possibilita acompanhar a qualidade dos testes e identificar áreas que necessitam de maior validação.
+
+#### Executando os testes
+
+```bash
+python -m pytest
+```
+
+#### Executando os testes com cobertura
+
+```bash
+python -m pytest --cov=app --cov=worker
+```
+
 
 ## 💼 Casos de Uso
 - Processamento de notas fiscais
